@@ -76,6 +76,17 @@ export default function OverviewPage() {
         </div>
       </section>
 
+      <Link
+        href="/impact"
+        className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-success/25 bg-successsoft px-5 py-4 transition hover:border-success/50 hover:shadow-card"
+      >
+        <span>
+          <span className="block text-2xs font-bold uppercase tracking-widest text-success">Latest outcome</span>
+          <span className="mt-1 block text-xl font-extrabold text-ink">₹1,200 Recovered</span>
+        </span>
+        <span className="text-sm font-bold text-success">2 customers returned · View impact →</span>
+      </Link>
+
       {/* Today's Hisaab */}
       <section aria-labelledby="todays-hisaab">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">

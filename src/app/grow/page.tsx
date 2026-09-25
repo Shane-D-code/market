@@ -4,11 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowDown, ChevronRight, Wallet } from "lucide-react";
 import { PageHeader } from "@/features/shared/page-header";
-import { formatINR, formatINRCompact } from "@/lib/utils";
+import { formatINR, formatINRCompact, cn } from "@/lib/utils";
 import { getCashFlow, getOpportunities } from "@/lib/api/client";
 import { usePageData } from "@/hooks/use-page-data";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ConfidenceBadge } from "@/features/shared/primitives";
 import { opportunityHref } from "@/lib/mock-data/opportunities";
@@ -217,12 +217,10 @@ export default function GrowPage() {
                     </div>
 
                     <div className="mt-auto pt-5">
-                      <Button asChild className="w-full">
-                        <Link href={href}>
-                          {g.cta}
-                          <ChevronRight className="size-4" aria-hidden />
-                        </Link>
-                      </Button>
+                      <Link href={href} className={cn(buttonVariants(), "w-full")}>
+                        {g.cta}
+                        <ChevronRight className="size-4" aria-hidden />
+                      </Link>
                     </div>
                   </motion.div>
                 );

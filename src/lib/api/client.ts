@@ -204,7 +204,13 @@ export async function getTransactions(q: TransactionQuery): Promise<Transaction[
   }
 
   if (q.status && q.status !== "ALL") {
-    list = list.filter((t) => t.status === q.status || t.type === q.status);
+    if (q.status === "INCOME") {
+      list = list.filter((t) => t.type === "SALE" && t.status === "COMPLETED");
+    } else if (q.status === "REFUND_TYPE") {
+      list = list.filter((t) => t.type === "REFUND" || t.status === "REFUNDED");
+    } else {
+      list = list.filter((t) => t.status === q.status || t.type === q.status);
+    }
   }
 
   if (q.search?.trim()) {

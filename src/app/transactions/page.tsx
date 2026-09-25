@@ -70,7 +70,7 @@ function rangeHref(range: RangeKey, from?: string, to?: string): string {
 function TransactionsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const range = normalizeRange(searchParams.get("range"));
+  const range = normalizeRange(searchParams.get("range") ?? searchParams.get("period"));
   const rangeMeta = RANGE_OPTIONS.find((option) => option.value === range) ?? RANGE_OPTIONS[2];
   const filter = FILTER_OPTIONS.some((option) => option.value === searchParams.get("status"))
     ? (searchParams.get("status") as TransactionQuery["status"])

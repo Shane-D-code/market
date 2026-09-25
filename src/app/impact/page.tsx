@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -15,7 +13,6 @@ import { getImpact } from "@/lib/api/client";
 import { usePageData } from "@/hooks/use-page-data";
 import { formatINR, dateLabel, relativeTime } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MoneyAmount } from "@/features/shared/primitives";
 
 const STAGE_ICONS = {
   "Opportunity detected": 0,
@@ -75,17 +72,6 @@ export default function ImpactPage() {
           recovered this month — every rupee traced to an action you approved.
         </p>
       </motion.section>
-
-      <Link
-        href="/impact"
-        className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-success/25 bg-successsoft px-5 py-4 transition hover:border-success/50 hover:shadow-card"
-      >
-        <span>
-          <span className="block text-2xs font-bold uppercase tracking-widest text-success">Latest measured recovery</span>
-          <span className="mt-1 block text-xl font-extrabold text-ink">₹1,200 Recovered</span>
-        </span>
-        <span className="text-sm font-bold text-success">Open impact record →</span>
-      </Link>
 
       {/* Stats */}
       <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-5">
